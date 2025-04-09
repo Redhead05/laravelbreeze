@@ -32,10 +32,10 @@ class AuthenticatedSessionController extends Controller
                 return redirect()->intended(route('admin.dashboard', absolute: false));
             }
             if ($request->user()->role === "asesor"){
-                return redirect()->intended(route('dashboard', absolute: false))->with('message', 'you should login via mobile');
+                return redirect()->intended(route('asesor.dashboard', absolute: false))->with('message', 'you should login via mobile');
             }
 
-        return redirect()->intended(route('dashboard', absolute: false));
+//        return redirect('/')->with('message', 'you should login via mobile');
     }
 
     /**

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Asesor\DashboardController as AsesorDashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,11 @@ Route::get('/dashboard', function () {
 // Route group untuk admin
 Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+});
+
+// Route group untuk asesor
+Route::middleware(['auth', 'role:asesor'])->group(function(){
+    Route::get('/asesor/dashboard', [AsesorDashboardController::class, 'index'])->name('asesor.dashboard');
 });
 
 Route::middleware('auth')->group(function () {

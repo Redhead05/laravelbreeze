@@ -12,7 +12,8 @@
 
     <aside id="layout-menu" class="layout-menu menu-vertical menu active" data-simplebar>
         <ul class="menu-inner">
-            {{--START BAN PDM MENU--}}
+            {{-- MENU ADMIN--}}
+            @if(Auth::user()->role === 'admin')
             <li class="menu-title small text-uppercase">
                 <span class="menu-title-text">ADMIN</span>
             </li>
@@ -41,6 +42,21 @@
                     <span class="title">Absen</span>
                 </a>
             </li>
+            @endif
+            {{--end MENU admin--}}
+            {{-- MENU ADMIN--}}
+            @if(Auth::user()->role === 'keuangan')
+                <li class="menu-title small text-uppercase">
+                    <span class="menu-title-text">keuangan</span>
+                </li>
+
+                <li class="menu-item">
+                    <a href="#" class="menu-link {{ Request::is('jobs-pdm') ? 'active' : '' }}"  id="loadJobs">
+                        <span class="material-symbols-outlined menu-icon">date_range</span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+            @endif
 
             <li class="menu-title small text-uppercase">
                 <span class="menu-title-text">MAIN</span>

@@ -16,7 +16,7 @@ class Role
     public function handle(Request $request, Closure $next, $role): Response
     {
         if ($request->user()->role != $role) {
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('login')->with('error', 'Unauthorized access.');
         }
 
         return $next($request);

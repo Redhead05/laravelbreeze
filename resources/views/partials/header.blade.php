@@ -850,10 +850,14 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#" id="logout-link" class="dropdown-item d-flex align-items-center text-body">
-                                            <i class="material-symbols-outlined">logout</i>
-                                            <span class="ms-2">Logout</span>
-                                        </a>
+
+                                        <form method="POST" action="{{ route('logout') }}" class="d-inline">
+                                            @csrf
+                                            <a href="#" class="dropdown-item d-flex align-items-center text-body" onclick="event.preventDefault(); this.closest('form').submit();">
+                                                <i class="material-symbols-outlined">logout</i>
+                                                <span class="ms-2">Logout</span>
+                                            </a>
+                                        </form>
                                     </li>
                                 </ul>
                             </div>

@@ -19,7 +19,7 @@
             </li>
 
             <li class="menu-item">
-                <a href="#" class="menu-link {{ Request::is('jobs-pdm') ? 'active' : '' }}"  id="loadJobs">
+                <a href="{{ route('admin.dashboard') }}" class="menu-link {{ Request::is('jobs-pdm') ? 'active' : '' }}"  id="loadJobs">
                     <span class="material-symbols-outlined menu-icon">date_range</span>
                     <span class="title">Dashboard</span>
                 </a>

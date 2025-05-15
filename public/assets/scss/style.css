@@ -14000,6 +14000,7 @@ img {
 }
 .form-control.h-55 {
   height: 55px;
+    border-radius: 7px;
 }
 .form-control.h-60 {
   height: 60px;

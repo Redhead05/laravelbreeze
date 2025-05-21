@@ -29,6 +29,7 @@
                     <span class="material-symbols-outlined menu-icon">date_range</span>
                     <span class="title">User</span>
                 </a>
+                <!-- test update-->
             </li>
             <li class="menu-item">
                 <a href="#" class="menu-link {{ Request::is('jobs-pdm') ? 'active' : '' }}"  id="loadJobs">

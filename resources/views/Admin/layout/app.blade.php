@@ -7,6 +7,7 @@
     <title>BAN PDM | JAWA TIMUR</title>
     <!-- Styles -->
     @include('partials.styles')
+    @stack('styles')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="boxed-size">

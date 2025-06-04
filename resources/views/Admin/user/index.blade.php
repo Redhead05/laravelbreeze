@@ -35,25 +35,21 @@
                         <div class="mb-3">
                             <label for="entriesSelect" class="form-label">Show entries:</label>
                             <select id="entriesSelect" class="form-select w-auto d-inline-block">
-                                <option value="3" selected>3</option>
-                                <option value="4">4</option>
+                                <option value="10" selected>10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
                             </select>
                         </div>
                         <div class="d-flex flex-wrap gap-2">
                             <button class="btn btn-outline-primary py-1 px-2 px-sm-4 fs-14 fw-medium rounded-3 hover-bg" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 <i class="ri-add-line d-none d-sm-inline-block"></i>
-                                <span>Add Transaction</span>
+                                <span>Add New User</span>
                             </button>
                             <form class="position-relative table-src-form me-0" onsubmit="return false;">
                                 <input type="text" class="form-control rounded-2" placeholder="Search here...." id="searchInput">
                                 <i class="material-symbols-outlined position-absolute top-50 start-0 translate-middle-y text-secondary">search</i>
                             </form>
-
-                            <select class="form-select rounded-2 month-select form-control w-135 bg-border-color border-color bg-transparent" aria-label="Default select example">
-                                <option selected=""> 30 days</option>
-                                <option value="1"> 90 days</option>
-                                <option value="1"> 1 year</option>
-                            </select>
                         </div>
                     </div>
 
@@ -101,7 +97,8 @@
                                                 <button class="ps-0 border-0 bg-transparent lh-1 position-relative top-2">
                                                     <i class="material-symbols-outlined fs-16 text-primary">visibility</i>
                                                 </button>
-                                                <button class="ps-0 border-0 bg-transparent lh-1 position-relative top-2">
+
+                                                <button class="ps-0 border-0 bg-transparent lh-1 position-relative top-2" data-bs-toggle="modal" data-bs-target="#editModal-{{ $user->id }}">
                                                     <i class="material-symbols-outlined fs-16 text-body">edit</i>
                                                 </button>
                                                 <button class="ps-0 border-0 bg-transparent lh-1 position-relative top-2">
@@ -149,6 +146,7 @@
 
             <!-- Modal Card Add -->
             @include('Admin.user.create')
+            @include('Admin.user.edit')
         </div>
 
         <div class="flex-grow-1"></div>
@@ -160,5 +158,88 @@
 @push('scripts')
     <script src="https://cdn.datatables.net/2.3.1/js/dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/2.3.1/js/dataTables.semanticui.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            let table = $('#UserTable').DataTable({
+                "lengthMenu": [10, 20, 50, 100],
+                "searching": true,
+                "lengthChange": true,
+
+                "dom": 'rt', // hide everything except table and processing
+                "pageLength": 10,
+                "paging": true,
+                "info": false,
+
+            });
+            $('#searchInput').on('keyup', function () {
+                // console.log(`Kontol isinya ${this.value}`);
+                table.search(this.value).draw();
+            });
+            $('#entriesSelect').on('change', function () {
+                let value = parseInt($(this).val(), 10); // Parse the selected value as an integer
+                table.page.len(value).draw(); // Update the number of rows displayed
+            });
+            $(document).on('click', '.pagination a.page-link', function (e) {
+                e.preventDefault();
+                const page = parseInt($(this).data('page'), 10);
+                if (!isNaN(page)) {
+                    table.page(page).draw('page');
+                }
+            });
+            // init page pas render pertama
+            updatePaginationUI(table);
+
+            // init render SETELAH entriesSelect berubah
+            table.on('draw', function () {
+                updatePaginationUI(table); // ← THIS makes your custom pagination dynamic
+            });
+        });
+
+        function updatePaginationUI(table) {
+            const info = table.page.info(); // Get page info
+            const currentPage = info.page;
+            const totalPages = info.pages;
+            const totalRecords = info.recordsDisplay;
+            const startIndex = info.start + 1;
+            const endIndex = info.end;
+
+            // Update "Showing X of Y Results"
+            $('.showing-wrap span').text(`Showing ${endIndex} of ${totalRecords} Results`);
+
+            // Build pagination HTML
+            let paginationHtml = '';
+
+            // Previous button
+            paginationHtml += `
+                <li class="page-item ${currentPage === 0 ? 'disabled' : ''}">
+                    <a class="page-link icon " href="#" data-page="${currentPage - 1}">
+                        <i class="material-symbols-outlined">keyboard_arrow_left</i>
+                    </a>
+                </li>
+            `;
+
+            // Page numbers
+            for (let i = 0; i < totalPages; i++) {
+                paginationHtml += `
+                    <li class="page-item">
+                        <a class="page-link ${i === currentPage ? 'active' : ''}" href="#" data-page="${i}">${i + 1}</a>
+                    </li>
+                `;
+            }
+
+            // Next button
+            paginationHtml += `
+                <li class="page-item ${currentPage === totalPages - 1 ? 'disabled' : ''}">
+                    <a class="page-link icon" href="#" data-page="${currentPage + 1}">
+                        <i class="material-symbols-outlined">keyboard_arrow_right</i>
+                    </a>
+                </li>
+            `;
+
+            // Inject into DOM
+            $('.pagination').html(paginationHtml);
+        }
+    </script>
 
 @endpush

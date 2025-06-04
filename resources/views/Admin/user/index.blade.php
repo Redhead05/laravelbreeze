@@ -8,27 +8,6 @@
     <!-- Start Main Content Area -->
     <div class="container-fluid">
         <div class="main-content-container overflow-hidden">
-            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
-                <h3 class="mb-0">Transaction</h3>
-
-                <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-                    <ol class="breadcrumb align-items-center mb-0 lh-1">
-                        <li class="breadcrumb-item">
-                            <a href="#" class="d-flex align-items-center text-decoration-none">
-                                <i class="ri-home-4-line fs-18 text-primary me-1"></i>
-                                <span class="text-secondary fw-medium hover">Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">
-                            <span class="fw-medium">Finance</span>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">
-                            <span class="fw-medium">Transaction</span>
-                        </li>
-                    </ol>
-                </nav>
-            </div>
-
             <div class="card bg-white border-0 rounded-3 mb-4">
                 <div class="card-body p-0">
                     <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 p-4">
@@ -119,26 +98,6 @@
                             <nav aria-label="Page navigation">
                                 <ul class="pagination mb-0 justify-content-center"></ul>
                             </nav>
-
-{{--                            <nav aria-label="Page navigation example">--}}
-{{--                                <ul class="pagination mb-0 justify-content-center">--}}
-{{--                                    <li class="page-item">--}}
-{{--                                        <a class="page-link icon" href="transaction.html" aria-label="Previous">--}}
-{{--                                            <i class="material-symbols-outlined">keyboard_arrow_left</i>--}}
-{{--                                        </a>--}}
-{{--                                    </li>--}}
-{{--                                    <li class="page-item"><a class="page-link active" href="transaction.html">1</a></li>--}}
-{{--                                    <li class="page-item"><a class="page-link" href="transaction.html">2</a></li>--}}
-{{--                                    <li class="page-item"><a class="page-link" href="transaction.html">3</a></li>--}}
-{{--                                    <li class="page-item"><a class="page-link" href="transaction.html">4</a></li>--}}
-{{--                                    <li class="page-item">--}}
-{{--                                        <a class="page-link icon" href="transaction.html" aria-label="Next">--}}
-{{--                                            <i class="material-symbols-outlined">keyboard_arrow_right</i>--}}
-{{--                                        </a>--}}
-{{--                                    </li>--}}
-{{--                                </ul>--}}
-{{--                                <ul class="pagination mb-0 justify-content-center"></ul>--}}
-{{--                            </nav>--}}
                         </div>
                     </div>
                 </div>

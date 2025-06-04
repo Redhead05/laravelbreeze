@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Attendance\AttendanceController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\User\UserController;
 use App\Http\Controllers\Asesor\DashboardController as AsesorDashboardController;
@@ -21,6 +22,7 @@ Route::get('/', function () {
 Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::resource('/admin/user', UserController::class);
+    Route::resource('/admin/attendance', AttendanceController::class);
 });
 
 // Route group untuk keuangan

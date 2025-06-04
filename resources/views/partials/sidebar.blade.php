@@ -29,7 +29,6 @@
                     <span class="material-symbols-outlined menu-icon">date_range</span>
                     <span class="title">User</span>
                 </a>
-                <!-- test update-->
             </li>
             <li class="menu-item">
                 <a href="#" class="menu-link {{ Request::is('jobs-pdm') ? 'active' : '' }}"  id="loadJobs">
@@ -38,7 +37,7 @@
                 </a>
             </li>
             <li class="menu-item">
-                <a href="#" class="menu-link {{ Request::is('absensi') ? 'active' : '' }}"  id="loadJobs">
+                <a href="{{ route('attendance.index') }}" class="menu-link {{ Request::is('absensi') ? 'active' : '' }}"  id="loadJobs">
                     <span class="material-symbols-outlined menu-icon">date_range</span>
                     <span class="title">Absen</span>
                 </a>

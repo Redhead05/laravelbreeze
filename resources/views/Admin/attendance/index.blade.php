@@ -12,15 +12,12 @@
                     <!-- Tabs Navigation -->
                     <ul class="nav nav-tabs" id="contentTabs" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="true">Tab 1</button>
+                            <button class="nav-link active" id="tab1-tab" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-controls="tab1" aria-selected="true">Attendance</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false">Tab 2</button>
+                            <button class="nav-link" id="tab2-tab" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab" aria-controls="tab2" aria-selected="false">Report</button>
                         </li>
                     </ul>
-
-
-
                     <!-- Tabs Content -->
                     <div class="tab-content" id="contentTabsContent">
                         <!-- Tab 1 Content -->
@@ -51,7 +48,7 @@
 
                                     <div class="default-table-area style-two transaction-history-large">
                                         <div class="table-responsive">
-                                            <table id="UserTable" class="table align-middle">
+                                            <table id="attendanceTable" class="table align-middle">
                                                 <thead>
                                                 <tr>
                                                     <th scope="col">
@@ -75,24 +72,23 @@
                                                         <td>
                                                             <div class="d-flex align-items-center">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
                                                                 </div>
-                                                                <span class="ms-1 text-secondary">  id</span>
+                                                                <span class="ms-1 text-secondary">  101</span>
                                                             </div>
                                                         </td>
-                                                        <td>  nia</td>
-                                                        <td>  name</td>
-                                                        <td class="text-primary">  email</td>
-                                                        <td>  role</td>
+                                                        <td>  12345</td>
+                                                        <td>  John Doe</td>
+                                                        <td class="text-primary">  john.doe@example.com</td>
+                                                        <td>  Admin</td>
                                                         <td>
-                                                            <span class="d-inline-block fs-12 bg-success bg-opacity-10 text-success px-2 py-1 rounded-1">  status</span>
+                                                            <span class="d-inline-block fs-12 bg-success bg-opacity-10 text-success px-2 py-1 rounded-1">  Active</span>
                                                         </td>
                                                         <td>
                                                             <div class="d-flex align-items-center gap-1">
                                                                 <button class="ps-0 border-0 bg-transparent lh-1 position-relative top-2">
                                                                     <i class="material-symbols-outlined fs-16 text-primary">visibility</i>
                                                                 </button>
-
                                                                 <button class="ps-0 border-0 bg-transparent lh-1 position-relative top-2" data-bs-toggle="modal" data-bs-target="#editModal">
                                                                     <i class="material-symbols-outlined fs-16 text-body">edit</i>
                                                                 </button>
@@ -103,6 +99,67 @@
                                                         </td>
                                                     </tr>
 
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
+                                                                </div>
+                                                                <span class="ms-1 text-secondary">  102</span>
+                                                            </div>
+                                                        </td>
+                                                        <td>  67890</td>
+                                                        <td>  Jane Smith</td>
+                                                        <td class="text-primary">  jane.smith@example.com</td>
+                                                        <td>  User</td>
+                                                        <td>
+                                                            <span class="d-inline-block fs-12 bg-warning bg-opacity-10 text-warning px-2 py-1 rounded-1">  Pending</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="d-flex align-items-center gap-1">
+                                                                <button class="ps-0 border-0 bg-transparent lh-1 position-relative top-2">
+                                                                    <i class="material-symbols-outlined fs-16 text-primary">visibility</i>
+                                                                </button>
+                                                                <button class="ps-0 border-0 bg-transparent lh-1 position-relative top-2" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                                    <i class="material-symbols-outlined fs-16 text-body">edit</i>
+                                                                </button>
+                                                                <button class="ps-0 border-0 bg-transparent lh-1 position-relative top-2">
+                                                                    <i class="material-symbols-outlined fs-16 text-danger">delete</i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td>
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault5">
+                                                                </div>
+                                                                <span class="ms-1 text-secondary">  103</span>
+                                                            </div>
+                                                        </td>
+                                                        <td>  54321</td>
+                                                        <td>  Alice Johnson</td>
+                                                        <td class="text-primary">  alice.johnson@example.com</td>
+                                                        <td>  Manager</td>
+                                                        <td>
+                                                            <span class="d-inline-block fs-12 bg-danger bg-opacity-10 text-danger px-2 py-1 rounded-1">  Inactive</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="d-flex align-items-center gap-1">
+                                                                <button class="ps-0 border-0 bg-transparent lh-1 position-relative top-2">
+                                                                    <i class="material-symbols-outlined fs-16 text-primary">visibility</i>
+                                                                </button>
+                                                                <button class="ps-0 border-0 bg-transparent lh-1 position-relative top-2" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                                    <i class="material-symbols-outlined fs-16 text-body">edit</i>
+                                                                </button>
+                                                                <button class="ps-0 border-0 bg-transparent lh-1 position-relative top-2">
+                                                                    <i class="material-symbols-outlined fs-16 text-danger">delete</i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -122,8 +179,7 @@
                         <!-- Tab 2 Content -->
                         <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
                             <div class="p-4">
-                                <h5>Tab 2 Content</h5>
-                                <p>This is the content for Tab 2. Add your desired content here.</p>
+                                @include('Admin.attendance.index');
                             </div>
                         </div>
                     </div>

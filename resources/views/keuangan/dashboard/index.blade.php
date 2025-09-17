@@ -1,5 +1,5 @@
 @php use Illuminate\Support\Facades\Auth; @endphp
-@extends('Admin.layout.app')
+@extends('layouts.shared-app')
 
 @section('content')
     <div class="row justify-content-center">

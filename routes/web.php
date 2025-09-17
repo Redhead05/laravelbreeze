@@ -4,7 +4,7 @@ use App\Http\Controllers\Admin\Attendance\AttendanceController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\User\UserController;
 use App\Http\Controllers\Asesor\DashboardController as AsesorDashboardController;
-use App\Http\Controllers\Keuangan\KeuanganDashboardController;
+use App\Http\Controllers\Lembaga\DashboardController as LembagaDashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,9 +25,9 @@ Route::middleware(['auth', 'role:admin'])->group(function(){
     Route::resource('/admin/attendance', AttendanceController::class);
 });
 
-// Route group untuk keuangan
-Route::middleware(['auth', 'role:keuangan'])->group(function(){
-    Route::get('/keuangan/dashboard', [KeuanganDashboardController::class, 'index'])->name('keuangan.dashboard');
+// Route group untuk lembaga
+Route::middleware(['auth', 'role:lembaga'])->group(function(){
+    Route::get('/lembaga/dashboard', [LembagaDashboardController::class, 'index'])->name('lembaga.dashboard');
 });
 
 // Route group untuk asesor
